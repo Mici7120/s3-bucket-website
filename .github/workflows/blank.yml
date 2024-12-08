@@ -12,6 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4.1.0
         name: Set Up NodeJS
 
@@ -24,10 +26,6 @@ jobs:
       - name: List
         run: ls
 
-  deploy-site:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - uses: jakejarvis/s3-sync-action@master
         with:
           args: --delete
