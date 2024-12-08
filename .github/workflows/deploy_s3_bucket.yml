@@ -1,4 +1,4 @@
-name: CI
+name: Push to S3 Bucket
 
 on:
   push:
@@ -22,9 +22,6 @@ jobs:
 
       - name: Build Project
         run: npm run build
-
-      - name: List
-        run: ls
 
       - uses: jakejarvis/s3-sync-action@master
         with:
